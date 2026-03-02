@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import 'state.dart';
 import 'dashboard.dart';
 import 'tasks.dart';
@@ -58,12 +59,18 @@ class _RootState extends State<Root> {
       body: pages[index],
       bottomNavigationBar: NavigationBar(
         selectedIndex: index,
-        onDestinationSelected: (i) => setState(() => index = i),
+        onDestinationSelected: (i) {
+          setState(() => index = i);
+        },
         destinations: const [
-          NavigationDestination(icon: Icon(Icons.home), label: "Home"),
-          NavigationDestination(icon: Icon(Icons.check), label: "Tasks"),
-          NavigationDestination(icon: Icon(Icons.trending_up), label: "Progress"),
-          NavigationDestination(icon: Icon(Icons.bar_chart), label: "Charts"),
+          NavigationDestination(
+              icon: Icon(Icons.home), label: "Home"),
+          NavigationDestination(
+              icon: Icon(Icons.check), label: "Tasks"),
+          NavigationDestination(
+              icon: Icon(Icons.trending_up), label: "Progress"),
+          NavigationDestination(
+              icon: Icon(Icons.bar_chart), label: "Charts"),
         ],
       ),
     );
